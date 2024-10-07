@@ -21,6 +21,8 @@
 #-renamesourcefileattribute SourceFile
 
 -dontobfuscate
+-keepattributes PermittedSubclasses
+-keep class com.example.myapplication.ClassToKeep
 -keep class ** extends com.example.myapplication.ClassToKeep { *; }
--keep class com.example.myapplication.A { *; }
--keep class com.example.myapplication.A$B { *; }
+#Without this keep rule, B is not found as subclass of ClassToKeep
+#-keep class com.example.myapplication.A
